@@ -16,8 +16,8 @@ pool:
 #   displayName: 'Run a one-line script'
 
 steps:
-- script: |
-    sudo apt-get update
-    sudo apt install texlive-latex-extra -y
-    pdflatex ./helloworld.tex
-  displayName: 'Run a multi-line script'
+  - script: |
+      sudo apt-get update
+      sudo apt install texlive-latex-extra -y
+      pdflatex ./helloworld.tex
+    displayName: 'Run a multi-line script'
