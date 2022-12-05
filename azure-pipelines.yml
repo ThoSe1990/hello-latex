@@ -4,16 +4,11 @@
 # https://aka.ms/yaml
 
 
-
 trigger:
 - main
 
 pool:
   vmImage: ubuntu-latest
-
-# steps:
-# - script: echo Hello, world!
-#   displayName: 'Run a one-line script'
 
 steps:
   - script: |
@@ -22,15 +17,8 @@ steps:
       pdflatex ./helloworld.tex
     displayName: 'Run a multi-line script'
 
-  # - publish: $(System.DefaultWorkingDirectory)/helloworld.pdf
-  #   artifact: helloworldpdf
 
   - task: PublishPipelineArtifact@1
     inputs:
-      targetPath: '$(System.DefaultWorkingDirectory)/helloworld.pdf' # string. Alias: path. Required. File or directory path. Default: $(Pipeline.Workspace).
-      #artifact: # string. Alias: artifactName. Artifact name. 
-      publishLocation: 'pipeline' # 'pipeline' | 'filepath'. Alias: artifactType. Required. Artifact publish location. Default: pipeline.
-      #fileSharePath: # string. Required when artifactType = filepath. File share path. 
-      #parallel: false # boolean. Optional. Use when artifactType = filepath. Parallel copy. Default: false.
-      #parallelCount: '8' # string. Optional. Use when artifactType = filepath && parallel = true. Parallel count. Default: 8.
-      #properties: # string. Custom properties.
+      targetPath: '$(System.DefaultWorkingDirectory)/helloworld.pdf'
+      publishLocation: 'pipeline'
