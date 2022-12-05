@@ -21,3 +21,6 @@ steps:
       sudo apt install texlive-latex-extra -y
       pdflatex ./helloworld.tex
     displayName: 'Run a multi-line script'
+
+  - publish: $(System.DefaultWorkingDirectory)/helloworld.pdf
+    artifact: helloworldpdf
