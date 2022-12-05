@@ -9,8 +9,12 @@ trigger:
 pool:
   vmImage: ubuntu-latest
 
+steps:
+- script: echo Hello, world!
+  displayName: 'Run a one-line script'
+
 - script: |
     sudo apt-get update
     sudo apt install texlive-latex-extra -y
     pdflatex ./helloworld.tex
-  displayName: 'hello latex'
+  displayName: 'Run a multi-line script'
