@@ -20,9 +20,15 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
-
       - name: build
         run: |
           sudo apt-get update
           sudo apt install texlive-latex-extra -y
           pdflatex ./helloworld.tex
+
+  deployment:
+    runs-on: ubuntu-latest
+    environment: my_environment
+    steps:
+      - name: deploy
+      - path: $GITHUB_WORKSPACE/helloworld.pdf
