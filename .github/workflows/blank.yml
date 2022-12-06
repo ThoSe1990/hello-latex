@@ -27,8 +27,12 @@ jobs:
           pdflatex ./helloworld.tex
 
   deployment:
+    needs: build
     runs-on: ubuntu-latest
-    environment: my_environment
-    name: deploy
-    path: $GITHUB_WORKSPACE/helloworld.pdf
-
+    steps:
+      - name: Download build-output artifact
+        uses: actions/download-artifact@master
+        with:
+          name: build-output
+          path: helloworld.pdf
+          
