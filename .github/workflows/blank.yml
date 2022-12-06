@@ -29,8 +29,6 @@ jobs:
   deployment:
     runs-on: ubuntu-latest
     environment: my_environment
-    steps:
-      - name: deploy
-      - path: $GITHUB_WORKSPACE/helloworld.pdf
+    name: deploy
+    path: $GITHUB_WORKSPACE/helloworld.pdf
 
-      
